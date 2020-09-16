@@ -15,6 +15,10 @@ deletePersonQuery = async(id) => {
     return await con.query(myQuery, [id]);
 }
 
+getEmailAndPhoneQuery = async() => {
+    const myQuery = "SELECT P.email, P.telefono FROM persona P";
+    return await con.query(myQuery);
+}
 
 /*
 
@@ -33,5 +37,6 @@ SELECT COUNT(*) FROM cita C JOIN centro_atencion CA WHERE CA.id_centro_atencion 
 module.exports = {
     getAllPersonQuery,
     savePersonQuery,
-    deletePersonQuery
+    deletePersonQuery,
+    getEmailAndPhoneQuery
 }
