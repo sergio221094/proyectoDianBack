@@ -8,7 +8,7 @@ getAllCenterOfAttentionCtrl = async(req, res) => {
 }
 
 getCenterOfAttentionByIdCtrl = async(req, res) => {
-    id = req.body.id_centro_atencion;
+    id = req.headers.id_centro_atencion;
     let response = await getCenterOfAttentionByIdQuery(id);
     handle(response, res);
 }
@@ -19,8 +19,23 @@ saveCenterOfAttentionCtrl = async(req, res) => {
     handle(response, res);
 }
 
+updateCenterOfAttentionCtrl = async(req, res) => {
+    id = req.headers.id_centro_atencion;
+    centerOfAttention = req.body;
+    let response = await updateCenterOfAttentionQuery(id, centerOfAttention);
+    handle(response, res);
+}
+
+deleteCenterOfAttentionByIdCtrl = async(req, res) => {
+    id = req.headers.id_centro_atencion;
+    let response = await deleteCenterOfAttentionByIdQuery(id);
+    handle(response, res);
+}
+
 module.exports = {
     getAllCenterOfAttentionCtrl,
     getCenterOfAttentionByIdCtrl,
-    saveCenterOfAttentionCtrl
+    saveCenterOfAttentionCtrl,
+    updateCenterOfAttentionCtrl,
+    deleteCenterOfAttentionByIdCtrl
 }

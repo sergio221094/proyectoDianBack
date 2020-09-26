@@ -20,6 +20,14 @@ getEmailAndPhoneQuery = async() => {
     return await con.query(myQuery);
 }
 
+updatePersonQuery = async(id, person) => {
+    const myQuery = "UPDATE `persona` SET ? WHERE `id_persona` = " + id;
+    console.log(myQuery);
+    return await con.query(myQuery, [person]);
+}
+
+
+
 /*
 
 SELECT P.email, P.telefono FROM persona P
@@ -38,5 +46,6 @@ module.exports = {
     getAllPersonQuery,
     savePersonQuery,
     deletePersonQuery,
-    getEmailAndPhoneQuery
+    getEmailAndPhoneQuery,
+    updatePersonQuery
 }

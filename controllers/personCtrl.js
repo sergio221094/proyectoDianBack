@@ -23,9 +23,17 @@ getEmailAndPhoneCtrl = async(req, res) => {
     handle(response, res);
 }
 
+updatePersonCtrl = async(req, res) => {
+    id = req.headers.id_persona;
+    person = req.body;
+    let response = await updatePersonQuery(id, person);
+    handle(response, res);
+}
+
 module.exports = {
     getAllPersonCtrl,
     savePersonCtrl,
     deletePersonCtrl,
-    getEmailAndPhoneCtrl
+    getEmailAndPhoneCtrl,
+    updatePersonCtrl
 }

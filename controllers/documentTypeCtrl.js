@@ -6,6 +6,28 @@ getAllDocumentTypesCtrl = async(req, res) => {
     handle(response, res);
 }
 
+saveDocumentTypesCtrl = async(req, res) => {
+    centerOfAttention = req.body;
+    let response = await saveDocumentTypesQuery(centerOfAttention);
+    handle(response, res);
+}
+
+updateDocumentTypesCtrl = async(req, res) => {
+    id = req.headers.id_tipo_identificacion;
+    centerOfAttention = req.body;
+    let response = await updateDocumentTypesQuery(id, centerOfAttention);
+    handle(response, res);
+}
+
+deleteDocumentTypesCtrl = async(req, res) => {
+    id = req.headers.id_tipo_identificacion;
+    let response = await deleteDocumentTypesQuery(id);
+    handle(response, res);
+}
+
 module.exports = {
-    getAllDocumentTypesCtrl
+    getAllDocumentTypesCtrl,
+    saveDocumentTypesCtrl,
+    updateDocumentTypesCtrl,
+    deleteDocumentTypesCtrl
 }

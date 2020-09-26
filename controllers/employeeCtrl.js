@@ -18,8 +18,23 @@ saveEmployeeCtrl = async(req, res) => {
     handle(response, res);
 }
 
+updateEmployeeCtrl = async(req, res) => {
+    id = req.headers.id_trabajador;
+    centerOfAttention = req.body;
+    let response = await updateEmployeeQuery(id, centerOfAttention);
+    handle(response, res);
+}
+
+deleteEmployeeCtrl = async(req, res) => {
+    id = req.headers.id_trabajador;
+    let response = await deleteEmployeeQuery(id);
+    handle(response, res);
+}
+
 module.exports = {
     getAllEmployeeCtrl,
     getEmployeeByIdCenterCtrl,
-    saveEmployeeCtrl
+    saveEmployeeCtrl,
+    updateEmployeeCtrl,
+    deleteEmployeeCtrl
 }

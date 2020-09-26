@@ -15,9 +15,20 @@ saveCenterOfAttentionQuery = async(centerOfAttention) => {
     return await con.query(myQuery, [centerOfAttention]);
 }
 
+updateCenterOfAttentionQuery = async(id, centerOfAttention) => {
+    const myQuery = "UPDATE `centro_atencion` SET ? WHERE `id_centro_atencion` = " + id;
+    return await con.query(myQuery, [centerOfAttention]);
+}
+
+deleteCenterOfAttentionByIdQuery = async(id) => {
+    const myQuery = "DELETE FROM `centro_atencion` WHERE id_centro_atencion = ?";
+    return await con.query(myQuery, [id]);
+}
 
 module.exports = {
     getAllCenterOfAttentionQuery,
     getCenterOfAttentionByIdQuery,
-    saveCenterOfAttentionQuery
+    saveCenterOfAttentionQuery,
+    updateCenterOfAttentionQuery,
+    updateCenterOfAttentionQuery
 }
